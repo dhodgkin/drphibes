@@ -221,8 +221,6 @@ DEPENDENCIES
   devise (>= 1.4.7)
   factory_girl_rails (>= 1.2.0)
   frontend-helpers
-  haml (>= 3.1.2)
-  haml-rails (>= 0.3.4)
   heroku
   jquery-rails
   launchy (>= 2.0.5)

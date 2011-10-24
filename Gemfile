@@ -5,7 +5,7 @@ source :rubygems unless ENV['QUICK'] # source 'http://rubygems.org'
 
 gem 'rack',                 '1.3.5'
 gem 'rails',                '3.1.1'
-gem 'haml',                 '>= 3.1.2'
+#gem 'haml',                 '>= 3.1.2'
 gem 'devise',               '>= 1.4.7'
 gem 'cancan'
 gem 'jquery-rails'
@@ -24,7 +24,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'haml-rails',         '>= 0.3.4'
+#  gem 'haml-rails',         '>= 0.3.4'
   gem 'annotate',           '>= 2.4.0'
 end
 
