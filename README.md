@@ -1,4 +1,4 @@
-# Tatz
+# Tatzoo
 
 ## More Information
 
