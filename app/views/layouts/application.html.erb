@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
     <title>tatzoo</title>
     <%= render 'shared/meta' %>
@@ -7,24 +10,8 @@
     <%= render 'shared/javascripts' %>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <%= render 'shared/header' %>
-        <div class="flash_msg">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </div>
-      </header>
-
-      <section>
-        <%= yield %>
-      </section>
-      
-      <footer>
-        <%= render 'shared/footer' %>
-      </footer>
-    </div>    
-
-    <%= debug(params) if Rails.env.development? %>
+    <%= render 'shared/header' %>
+    <div class="container"><%= yield %></div>      
+    <%= render 'shared/footer' %>
   </body>
 </html>

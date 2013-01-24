@@ -1,8 +1,24 @@
-<%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
-<nav class="round">
-  <ul>
-    <li><%= link_to "Home", '#' %></li>
-    <li><%= link_to "Help", '#' %></li>
-    <li><%= link_to "Sign in", '#' %></li>
-  </ul>
-</nav>
+<div class="topbar" data-dropdown="dropdown" >
+  <div class="topbar-inner">
+    <div class="container">
+      <h3><a href="#">tatzoo</a></h3>
+      <ul class="nav secondary-nav">
+          <li><%= link_to "Home", root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Feed", "/feed" %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to('Edit account', edit_user_registration_path) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
+        <% else %>
+          <li><%= link_to('Login', new_user_session_path) %></li>
+          <li><%= link_to('Register', new_user_registration_path) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div><!-- /topbar-inner -->
+</div><!-- /topbar -->
+<header></header>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :class => "alert-message #{name}" if msg.is_a?(String) %>
+<% end %>

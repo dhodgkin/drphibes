@@ -5,10 +5,14 @@ source :rubygems unless ENV['QUICK'] # source 'http://rubygems.org'
 
 gem 'rails',                '3.1.1'
 
+# authentication
 gem 'devise',               '>= 1.4.7'
-gem 'cancan'
+gem 'devise_invitable'
 
+# helpers
 gem 'frontend-helpers'
+gem 'gravatar_image_tag'
+gem 'will_paginate'
 
 # deployment
 gem 'heroku'
@@ -16,9 +20,9 @@ gem 'taps'
 
 # asset template engines
 gem 'jquery-rails'
+gem 'rack-pjax'
 gem 'sass-rails',         '~> 3.1.4'
 gem 'coffee-rails',       '~> 3.1.1'
-gem 'coffee-script'
 gem 'uglifier',           '>= 1.0.3'
 
 group :production do
@@ -28,17 +32,20 @@ end
 group :development do
   gem 'rspec-rails',        '>= 2.6.1'
   gem 'sqlite3'
-  gem 'annotate',           '>= 2.4.0'
+  gem 'annotate'
   gem 'faker',              '>= 0.3.1'
 end
 
 group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec-rails',        '>= 2.6.1'
   gem 'factory_girl_rails', '>= 1.2.0'
 end
 
 if HOST_OS =~ /linux/i
-  gem 'therubyracer',       '>= 0.8.2'
+  gem 'therubyracer',       '>= 0.9.8'
 end
 
 # fixes an issue with commands declaring constant twice

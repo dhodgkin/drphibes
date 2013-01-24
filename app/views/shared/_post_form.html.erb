@@ -1,0 +1,8 @@
+<section class="">
+  <%= form_for @post do |f| %>
+    <div id="post_form" class="round">
+      <div class="field"><%= f.text_area :post_content, :class => 'span16' %></div>
+      <div><%= f.submit "Submit" %></div>
+    </div>
+  <% end %>
+</section>

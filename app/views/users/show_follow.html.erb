@@ -1,0 +1,10 @@
+<section>
+  <section class="span9 pull-left">
+  <% unless @users.empty? %>
+    <div class="box buff-bottom">
+      <%= render @users %>
+    </div>
+  <% end %>    
+  </section>
+</section>
+<%= render 'shared/stats' %>

@@ -1,0 +1,8 @@
+<section class="span9 buff-bottom pull-left">
+  <div class="box">
+    <%= gravatar_for @user %>
+    <h1 class="pull-right"><%= @user.username %></h1>
+    <%= render 'follow_form' %>
+  </div>
+</section>
+<%= render 'shared/stats' %>

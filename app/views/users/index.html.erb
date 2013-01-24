@@ -1,0 +1,40 @@
+<section>
+  <section class="span16 pull-left">
+  <% unless @users.empty? %>
+    <div class="box buff-bottom">
+      <% @users.each do |user| %>
+      <div class="box buff-bottom">
+        <span class="pull-left buff-right"><%= link_to gravatar_for(user, :size => 50), user %></span> 
+        <div>
+          <h3><%= user.username %></h3>
+          <% if user.fname.blank? %>
+            <div>Cowardly Bastard</div>
+          <% else %>
+            <div><%= user.fname %>  <%= user.lname %></div>
+          <% end %>
+        </div>
+        <span class="post-follow">
+          <% unless current_user?(user) %>
+            <div id="follow_form">
+              <% if current_user.following? user %>
+                <%= form_for current_user.relationships.find_by_followed_id(user),
+                             :html => { :method => :delete }, 
+                             :remote => true do |f| %>
+                  <div><%= f.submit "Unfollow" %></div>
+                <% end %>
+              <% else %>
+                <%= form_for current_user.relationships.build(:followed_id => user.id), 
+                  :remote => true do |f| %>
+                  <div><%= f.hidden_field :followed_id %></div>
+                  <div><%= f.submit "Follow" %></div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </span>
+      </div>
+      <% end %>
+    </div>
+  <% end %>    
+  </section>
+</section>

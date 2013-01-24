@@ -14,6 +14,7 @@
 
 # minimal Rails specific artifacts
 db/*.sqlite3
+db/*.db
 /log/*
 tmp/*
 
@@ -56,6 +57,10 @@ tmp/*
 
 # Netbeans project directory
 /nbproject/
+
+# Sublime Text project files
+/*.sublime-project
+/*.sublime-workspace
 
 # Textmate project files
 /*.tmproj

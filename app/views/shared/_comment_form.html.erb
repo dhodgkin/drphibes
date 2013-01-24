@@ -1,0 +1,10 @@
+<div class="span16">
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div id="comment_form" class="round">
+      <span>Comments:</span>
+      <div class="field"><%= f.text_area :content, :class => 'span16' %></div>
+      <div><%= f.submit "Submit" %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
-<h1>home</h1>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat, augue vel vestibulum dapibus, nisl nulla lacinia purus, ac auctor velit velit ac elit. Cras malesuada, justo in semper lobortis, mauris erat fringilla sem, vel dapibus lectus dolor in dolor. Pellentesque auctor, nisl volutpat ultricies sollicitudin, dolor est rutrum eros, at dapibus nulla orci vitae sem. Aliquam rhoncus laoreet quam eu placerat. Nulla nec ipsum erat. Etiam vel nibh turpis, accumsan laoreet odio. Maecenas nisi enim, porta vitae sagittis sed, congue eu ante.
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat, augue vel vestibulum dapibus, nisl nulla lacinia purus, ac auctor velit velit ac elit. Cras malesuada, justo in semper lobortis, mauris erat fringilla sem, vel dapibus lectus dolor in dolor. Pellentesque auctor, nisl volutpat ultricies sollicitudin, dolor est rutrum eros, at dapibus nulla orci vitae sem. Aliquam rhoncus laoreet quam eu placerat. Nulla nec ipsum erat. Etiam vel nibh turpis, accumsan laoreet odio. Maecenas nisi enim, porta vitae sagittis sed, congue eu ante.
-</p>
+<% if user_signed_in? %>
+  <%= render 'shared/post_form' %>
+  <%= render 'shared/feed' %>
+  <%= render 'shared/stats' %>
+<% else %>
+  <%= link_to('Register', new_user_registration_path, :class => "signup_button round") %>
+<% end %>

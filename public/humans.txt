@@ -1,0 +1,12 @@
+/* TEAM */
+  Developer/Designer/Owner: Damien Hodgkin
+  Site: http://dhodgkin.github.com
+  Twitter: @dthodgkin
+  Heello: @dhodgkin
+  Location: US
+
+/* SITE */
+  Last update: 2011/11/21
+  Standards: HTML5, CSS3
+  Components: Ruby on Rails
+  Software: Sublime Text, Chrome, Firefox

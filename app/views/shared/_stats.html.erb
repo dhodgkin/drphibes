@@ -1,0 +1,33 @@
+<% @user ||= current_user %>
+<section class="profile box span6 pull-right">
+  <header class="profile-header">
+    <% if @user.fname and @user.lname == '' %>
+      <h3>Cowardly Bastard</h3>
+    <% else %>
+      <h3><%= @user.fname %> <%= @user.lname %></h3>
+    <% end %>
+  </header>
+  <div class="row">
+    <div class="pull-left">Email: <%= @user.email %></div>
+    <div class="pull-right">Role: 
+      <% if @user.imcanvas? %>I am a canvas<% end %>
+      <% if @user.imartist? %>I am an artist<% end %>
+    </div>
+  </div>
+  <div class="bio-box round s">
+    <header class="bio-header">Bio</header>
+    <%= @user.bio %>
+  </div>
+  <footer class="profile-footer">
+    <div class="pull-left"><%= pluralize(@user.posts.count, "post") %></div>
+    <div class="pull-right">
+      <a href="<%= following_user_path(@user) %>">
+        <span id="following" class="stat"><%= @user.following.count %> following</span>
+      </a>
+      &nbsp;/&nbsp;
+      <a href="<%= followers_user_path(@user) %>">
+        <span id="followers" class="stat"><%= pluralize(@user.followers.count, "follower") %></span>
+      </a>
+    </div>
+  </footer><!-- /stats -->
+</section><!-- /profile -->

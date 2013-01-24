@@ -1,0 +1,25 @@
+<section class="span16">
+  <div class="buff-bottom span16 box">
+    <div class="post-box">
+      <span class="user"><%= link_to @post.user.username, @post.user %> posted:</span><br>
+      <span class="content"><%= @post.post_content %></span><br>
+      <span class="posted_at small"><%= time_ago_in_words(@post.created_at) %> ago.</span>
+    </div>
+  </div>
+  <div class="box span16">
+  <%= render 'shared/comment_form' %>
+  <div class="span16">
+    <span class="">What others have commented:</span>
+    <% @comments.each do |comment| %>
+      <div class="post-box buff-bottom buff-top">
+        <% @user = User.find(comment.user_id) %>
+        <span><%= link_to @user.username, @user %> wrote:</span><br>
+        <span><%= comment.content %></span><br>
+        <% unless comment.created_at.nil? %>
+        <span class="posted_at small"><%= time_ago_in_words(comment.created_at) %> ago.</span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</section>

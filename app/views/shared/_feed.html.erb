@@ -1,0 +1,5 @@
+<% unless @feed.empty? %>
+  <section class="box span9 pull-left">
+    <%= render :partial => 'shared/feed_item', :collection => @feed %>
+  </section>
+<% end %>

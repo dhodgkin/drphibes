@@ -1,0 +1,39 @@
+<article class="row">
+  <div class="span1 pull-left">
+    <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  </div>
+  <div class="post-box span7 pull-left">
+    <span class="user"><%= link_to feed_item.user.username, feed_item.user %> posted:</span><br>
+    <span class="content"><%= feed_item.post_content %></span><br>
+    <span class="posted_at small"><%= time_ago_in_words(feed_item.created_at) %> ago.</span>
+    <span class="pull-right post-follow">
+      <% unless current_user?(feed_item.user) %>
+        <div id="follow_form">
+          <% if current_user.following? feed_item.user %>
+            <%= form_for current_user.relationships.find_by_followed_id(feed_item.user),
+                         :html => { :method => :delete }, 
+                         :remote => true do |f| %>
+              <div class="buff-left"><%= f.submit "-" %></div>
+            <% end %>
+          <% else %>
+            <%= form_for current_user.relationships.build(:followed_id => feed_item.user.id), 
+              :remote => true do |f| %>
+              <div><%= f.hidden_field :followed_id %></div>
+              <div class="buff-left"><%= f.submit "+" %></div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </span>
+    <span class="pull-right">
+      <%= link_to pluralize(feed_item.comments.count, "comment"), feed_item %>
+    </span>
+    <% if current_user == feed_item.user %>
+    <span class="pull-right buff-right">
+      <%= link_to "delete", feed_item, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => feed_item.post_content %>
+    </span>
+  </div>
+  <% end %>
+</article>
